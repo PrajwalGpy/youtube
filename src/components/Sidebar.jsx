@@ -18,7 +18,7 @@ const Sidebar = () => {
           <li>Trending</li>
           <li>Shopping</li>
           <li>Podcasts</li>
-          <li>Movies</li>
+          <li>Moies</li>
         </ul>
       </div>
       <div>

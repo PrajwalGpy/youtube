@@ -4,7 +4,7 @@ import Vediocontainer from "./Vediocontainer";
 
 const Maincontainer = () => {
   return (
-    <div className="flex">
+    <div className="flex mt-6 flex-col ">
       <ButtonList />
       <Vediocontainer />
     </div>

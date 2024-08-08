@@ -4,7 +4,7 @@ import Maincontainer from "./Maincontainer";
 
 const Body = () => {
   return (
-    <div className="flex  flex-row justify-between">
+    <div className="flex  flex-row  ">
       <Sidebar />
       <Maincontainer />
     </div>

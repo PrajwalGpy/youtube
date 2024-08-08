@@ -1,6 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import Store from "../utils/Store";
 
 const Sidebar = () => {
+  const isMenuOpen = useSelector((Store) => Store.app.isMenuOpen);
+
+  if (!isMenuOpen) return null;
   return (
     <div className="shadow-lg  border flex p-3 flex-col">
       <div>

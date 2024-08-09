@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { youTube_Vedio } from "../utils/Contents";
 import VedioCard from "./VedioCard";
+import { Link } from "react-router-dom";
 
 const Vediocontainer = () => {
   const [vedios, setVedios] = useState(null); // Initialize vedios as null
@@ -28,9 +29,13 @@ const Vediocontainer = () => {
 
   // Render VedioCard if vedios has data
   return vedios.length > 0 ? (
-    <div className="grid grid-cols-3 my-4 mx-auto">
+    <div className="grid grid-cols-3 my-4 mx-auto mt-4">
       {vedios.map((items, index) => {
-        return <VedioCard key={index} info={items} />;
+        return (
+          <Link to={"/watch?v=" + items.id} key={index}>
+            <VedioCard info={items} />
+          </Link>
+        );
       })}
     </div>
   ) : (

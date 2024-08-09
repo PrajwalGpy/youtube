@@ -18,7 +18,7 @@ const ButtonList = () => {
   ];
 
   return (
-    <div className="flex gap-3 ">
+    <div className="flex gap-3  fixed  bg-white z-20 w-full justify-center p-5 top-[4.5rem] mt-2">
       {youtubeCategoryButtons.map((name, index) => (
         <Button name={name} key={index}></Button>
       ))}

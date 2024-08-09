@@ -199,9 +199,9 @@ const Commentcontainer = () => {
   const Comment = ({ data }) => {
     const { author, comment } = data;
     return (
-      <div className="flex gap-3 items-center justify-start ">
+      <div className="flex gap-3 items-center justify-start bg-gray-300 rounded-lg shadow-lg px-4 mt-7">
         <div>
-          <VscAccount className="text-2xl font-bold" />
+          <VscAccount className="text-3xl font-bold" />
         </div>
         <div>
           <div className="font-bold">{author}</div>
@@ -210,12 +210,23 @@ const Commentcontainer = () => {
       </div>
     );
   };
-
+  const CommentList = ({ comments }) => {
+    return comments.map((comment) => {
+      return (
+        <div key={comment.id} className=" ">
+          <Comment data={comment} />
+          <div className="ml-5 border border-l-black">
+            <CommentList comments={comment.replies} />
+          </div>
+        </div>
+      );
+    });
+  };
   return (
     <div className="py-5 px-2">
       <div>
         <h1 className="font-bold text-lg">Comments:</h1>
-        <Comment data={youtubeComments[0]} />
+        <CommentList comments={youtubeComments} />
       </div>
     </div>
   );

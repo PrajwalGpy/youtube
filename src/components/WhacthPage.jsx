@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/AppSlice";
 import { useSearchParams } from "react-router-dom";
+import Commentcontainer from "./Commentcontainer";
 
 const WhacthPage = () => {
   const [searchParams] = useSearchParams();
@@ -12,7 +13,7 @@ const WhacthPage = () => {
     dispatch(closeMenu());
   }, []);
   return (
-    <div className="p-6">
+    <div className="p-6 flex flex-col">
       <iframe
         width="1000"
         height="500"
@@ -23,6 +24,7 @@ const WhacthPage = () => {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
+      <Commentcontainer />
     </div>
   );
 };

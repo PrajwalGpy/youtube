@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { youTube_Vedio } from "../utils/Contents";
-import VedioCard from "./VedioCard";
+import VideoCard from "./VedioCard";
 import { Link } from "react-router-dom";
 
-const Vediocontainer = () => {
-  const [vedios, setVedios] = useState(null); // Initialize vedios as null
+const VideoContainer = () => {
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getData();
@@ -12,35 +13,37 @@ const Vediocontainer = () => {
 
   const getData = async () => {
     try {
-      const data = await fetch(youTube_Vedio);
-      const json = await data.json();
-      setVedios(json.items);
-      console.log(json.items); // Log the items array, not vedios
+      const response = await fetch(youTube_Vedio);
+      const json = await response.json();
+
+      if (json && json.items && Array.isArray(json.items)) {
+        setVideos(json.items);
+      } else {
+        setVideos([]); // Set an empty array if the response structure is unexpected
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
-      // Handle error state if needed
+      setVideos([]); // Set an empty array in case of an error
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Render loading state while fetching data
-  if (vedios === null) {
+  if (loading) {
     return <p>Loading...</p>;
   }
 
-  // Render VedioCard if vedios has data
-  return vedios.length > 0 ? (
+  return videos.length > 0 ? (
     <div className="grid md:grid-cols-4 md:my-4 mx-auto md:mt-4 w-11/12 grid-cols-1 mt-10">
-      {vedios.map((items, index) => {
-        return (
-          <Link to={"/watch?v=" + items.id} key={index}>
-            <VedioCard info={items} />
-          </Link>
-        );
-      })}
+      {videos.map((item, index) => (
+        <Link to={`/watch?v=${item.id}`} key={index}>
+          <VideoCard info={item} />
+        </Link>
+      ))}
     </div>
   ) : (
-    <p>No vedios found.</p>
+    <p>No videos found.</p>
   );
 };
 
-export default Vediocontainer;
+export default VideoContainer;

@@ -24,11 +24,11 @@ const LiveChat = () => {
   }, []);
   return (
     <>
-      <h1 className=" flex justify-center bg-slate-400 shadow-lg    w-full ml-2   border-black border-x-2 border-t-2 rounded-se-xl rounded-ss-lg">
+      <h1 className=" flex justify-center bg-slate-400 shadow-lg    w-full md:ml-2   border-black border-x-2 border-t-2 rounded-se-xl rounded-ss-lg">
         Live Chat
       </h1>
 
-      <div className="h-[430px] w-full border bg-gray-200    border-black ml-2  flex  flex-col-reverse ">
+      <div className="h-[430px] w-full border bg-gray-200    border-black md:ml-2  flex  flex-col-reverse ">
         <div className="flex flex-col-reverse overflow-y-scroll ">
           {chat.map((i, index) => {
             return (
@@ -49,7 +49,7 @@ const LiveChat = () => {
           );
           setsendMessage(""); // Clear input field
         }}
-        className="w-full ml-2 border-black border-l-2 border-r-2 border-b-2 rounded-b-lg flex flex-row"
+        className="w-full md:ml-2 border-black border-l-2 border-r-2 border-b-2 rounded-b-lg flex flex-row"
       >
         <input
           type="text"

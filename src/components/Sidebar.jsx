@@ -1,9 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Store from "../utils/Store";
 import { Link } from "react-router-dom";
+import { closeMenu } from "../utils/AppSlice";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   const isMenuOpen = useSelector((Store) => Store.app.isMenuOpen);
   const youtubeHomePageButtons = [
     "Home",
@@ -16,11 +18,14 @@ const Sidebar = () => {
     "Liked Videos",
     "Settings",
   ];
+  const ClocloseMenu = () => {
+    dispatch(closeMenu());
+  };
   if (!isMenuOpen) return null;
   return (
-    <div className="   flex p-3 flex-col fixed h-screen bg-white z-40">
+    <div className="   flex p-3 flex-col fixed h-screen bg-white z-50 w-full md:w-0">
       <div>
-        <ul>
+        <ul onClick={() => ClocloseMenu()}>
           <Link to={"/"}>
             <li className=" font-bold mb-2 cursor-pointer">Home</li>
           </Link>

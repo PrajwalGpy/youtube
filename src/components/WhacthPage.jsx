@@ -14,13 +14,12 @@ const WhacthPage = () => {
     dispatch(closeMenu());
   }, []);
   return (
-    <div className="p-6 flex  flex-col w-full ">
-      <div className="p-6 flex  w-full ">
-        <div className="flex w-full">
+    <div className="md:p-6 flex  flex-col md:w-full  ">
+      <div className="md:p-6 flex  md:w-full  justify-center items-center">
+        <div className="flex flex-col justify-center md:flex-row  md:flex md:w-full">
           <div>
             <iframe
-              width="1000"
-              height="500"
+              className="md:w-[1000px] md:h-[500px] w-[380px] h-[250px]"
               src={"https://www.youtube.com/embed/" + searchParams.get("v")}
               title="YouTube video player"
               frameBorder="0"
@@ -29,12 +28,12 @@ const WhacthPage = () => {
               allowFullScreen
             ></iframe>
           </div>
-          <div className="w-full">
+          <div className="">
             <LiveChat />
           </div>
         </div>
       </div>
-      <div className="p-6  w-[1000px]">
+      <div className="md:p-6  md:w-[1000px]">
         <Commentcontainer />
       </div>
     </div>

@@ -225,7 +225,7 @@ const Commentcontainer = () => {
   return (
     <div className="py-5 px-2">
       <div>
-        <h1 className="font-bold text-lg">Comments:</h1>
+        <h1 className="font-bold text-base md:text-lg">Comments:</h1>
         <CommentList comments={youtubeComments} />
       </div>
     </div>

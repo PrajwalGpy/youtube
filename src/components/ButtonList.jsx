@@ -13,12 +13,12 @@ const ButtonList = () => {
     "Movies",
     "Fashion",
     "Podcasts",
-    "Recently uploaded",
+    "Recently ",
     "Watched",
   ];
 
   return (
-    <div className="flex gap-3  fixed  bg-white z-20 w-full justify-center p-5 top-[4.5rem] mt-2">
+    <div className="flex flex-row gap-1 md:gap-3  fixed  bg-white z-20 w-5/6 justify-center p-2 md:p-5 md:top-[4.5rem] mt-2 top-[4rem] overflow-x-scroll md:overflow-hidden px-10">
       {youtubeCategoryButtons.map((name, index) => (
         <Button name={name} key={index}></Button>
       ))}

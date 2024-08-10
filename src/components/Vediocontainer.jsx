@@ -29,7 +29,7 @@ const Vediocontainer = () => {
 
   // Render VedioCard if vedios has data
   return vedios.length > 0 ? (
-    <div className="grid grid-cols-3 my-4 mx-auto mt-4">
+    <div className="grid md:grid-cols-4 md:my-4 mx-auto md:mt-4 w-11/12 grid-cols-1 mt-10">
       {vedios.map((items, index) => {
         return (
           <Link to={"/watch?v=" + items.id} key={index}>

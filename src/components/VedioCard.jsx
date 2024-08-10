@@ -1,23 +1,31 @@
 import React from "react";
 
-const VedioCard = ({ info }) => {
+const VideoCard = ({ info }) => {
   const { statistics, snippet } = info;
-  const { title, channelId, channelTitle, thumbnails } = snippet;
+  const { title, channelTitle, thumbnails } = snippet;
+
   return (
-    <div className="m-3 p-3 w-96 shadow-lg ">
+    <div className="max-w-xs m-2  rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 mt-10">
       <img
-        className="w-full rounded-lg"
+        className="w-full h-40 object-cover rounded-lg"
         src={thumbnails.medium.url}
         alt="thumbnail"
       />
 
-      <ul>
-        <li className="font-bold  text-base mb-2">{title}</li>
-        <li className="">{channelTitle}</li>
-        <li className="">{statistics.viewCount}</li>
-      </ul>
+      <div className="p-4">
+        <h3
+          className="font-medium  text-gray-800 mb-1 line-clamp-2"
+          style={{ fontSize: "1rem" }}
+        >
+          {title}
+        </h3>
+        <p className="text-sm text-gray-600 mb-1">{channelTitle}</p>
+        <p className="text-sm text-gray-600">
+          {parseInt(statistics.viewCount).toLocaleString()} views
+        </p>
+      </div>
     </div>
   );
 };
 
-export default VedioCard;
+export default VideoCard;

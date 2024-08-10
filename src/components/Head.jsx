@@ -58,7 +58,8 @@ const Head = () => {
           <img src={youtubeLogo} alt="logo" className="h-6 cursor-pointer" />
         </a>
       </div>
-      <div className="flex h-8 relative">
+
+      <div className="hidden md:flex h-8 relative">
         <form
           className="flex h-8"
           onSubmit={(e) => {
@@ -106,7 +107,12 @@ const Head = () => {
         )}
       </div>
 
-      <div className="grid-cols-1">
+      <div className="md:grid-cols-1 flex flex-row justify-between items-center gap-3">
+        <div className="md:hidden block">
+          <Link to={"/search"}>
+            <CiSearch className="text-3xl font-extrabold  cursor-pointer" />
+          </Link>
+        </div>
         <VscAccount className="text-2xl" />
       </div>
     </div>

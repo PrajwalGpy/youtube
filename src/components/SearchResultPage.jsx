@@ -35,7 +35,7 @@ const SearchResultPage = () => {
   };
 
   return (
-    <div className="absolute  left-0 right-0 w-9/12 my-3 mx-auto flex flex-col">
+    <div className="absolute  left-0 right-0 md:w-9/12 my-3 mx-auto flex flex-col justify-center items-center">
       <h1>Search Results for: {query}</h1>
       <ul>
         {searchResults.length > 0 ? (

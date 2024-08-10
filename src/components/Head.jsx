@@ -3,15 +3,16 @@ import { VscAccount } from "react-icons/vsc";
 import { IoMenu } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import youtubeLogo from "../assets/yt_logo_rgb_light.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/AppSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { youtube_search_Api } from "../utils/Contents";
+import { IoClose } from "react-icons/io5";
 
 const Head = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const isMenuOpen = useSelector((Store) => Store.app.isMenuOpen);
   const [searchSuggetion, setSearchSuggetion] = useState("");
   const [searchSuggetionResult, setSearchSuggetionResult] = useState([]);
   const [searchSuggetionResultVal, setSearchSuggetionResultVal] =
@@ -53,7 +54,17 @@ const Head = () => {
   return (
     <div className="grid grid-flow-col p-6 justify-between items-center fixed w-full z-50 bg-white">
       <div className="grid-cols-1 flex items-center gap-3">
-        <IoMenu className="text-2xl cursor-pointer" onClick={toggleMenuEvent} />
+        {!isMenuOpen ? (
+          <IoMenu
+            className="text-2xl cursor-pointer"
+            onClick={toggleMenuEvent}
+          />
+        ) : (
+          <IoClose
+            className="text-2xl cursor-pointer"
+            onClick={toggleMenuEvent}
+          />
+        )}
         <a href="/">
           <img src={youtubeLogo} alt="logo" className="h-6 cursor-pointer" />
         </a>

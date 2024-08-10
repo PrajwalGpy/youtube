@@ -51,9 +51,9 @@ const MobileSearchResult = () => {
   };
 
   return (
-    <div className=" flex  flex-col">
+    <div className=" flex  flex-col justify-center ">
       <form
-        className="flex h-8"
+        className="flex h-8 justify-center"
         onSubmit={(e) => {
           e.preventDefault();
           handleSuggestionClick(searchSuggetion);

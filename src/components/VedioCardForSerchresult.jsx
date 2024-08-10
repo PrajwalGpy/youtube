@@ -5,8 +5,8 @@ const VideoCardForSearchResult = ({ info }) => {
   const { title, channelId, channelTitle, thumbnails, description } = snippet;
 
   return (
-    <div className=" m-3 p-3 shadow-lg flex md:flex-row rounded-lg md:max-w-7xl flex-col">
-      <div className="md:relative md:w-98 w-[300px] h-[250px] md:h-98">
+    <div className=" m-3 md:p-3 shadow-lg flex md:flex-row rounded-lg max-w-7xl flex-col">
+      <div className="md:relative md:w-98  w-[400px] h-[200px]">
         <img
           className="w-full h-full rounded-lg object-cover"
           src={thumbnails.high.url}
